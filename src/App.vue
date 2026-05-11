@@ -304,6 +304,8 @@ img {
 
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 .card {
   width: 360px;
@@ -553,5 +555,49 @@ html, body {
   margin-bottom: 20px;
 
   letter-spacing: 1px;
+}
+/* 📱 MOBILE RESPONSIVE FIX */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+
+  .card {
+    width: 95%;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .temp {
+    font-size: 40px;
+  }
+
+  .details {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .detail-box {
+    padding: 10px;
+  }
+
+  .forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hourly-forecast {
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: hidden;
+  }
+
+  img {
+    width: 50px;
+  }
 }
 </style>
