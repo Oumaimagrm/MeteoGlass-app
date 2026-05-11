@@ -118,11 +118,11 @@ import { ref } from 'vue'
 import { onMounted, watch } from "vue"
 import { Chart, registerables } from "chart.js"
 
-import sunny from './images/sunny.jpg'
-import rainy from './images/rainy.jpg'
-import cloudy from './images/cloudy.jpg'
-import snow from './images/snow.jpg'
-import normal from './images/default.jpg'
+const sunny = '/images/sunny.jpg'
+const rainy = '/images/rainy.jpg'
+const cloudy = '/images/cloudy.jpg'
+const snow = '/images/snow.jpg'
+const normal = '/images/default.jpg'
 
 Chart.register(...registerables)
 
@@ -136,6 +136,7 @@ const hourlyForecast = ref([])
 const getIconUrl = (icon) => {
   return `https://openweathermap.org/img/wn/${icon}@2x.png`
 }
+
 
 const getWeather = async () => {
   const apiKey = 'f567747042c6d03fe68c91445ca151c3'
@@ -161,7 +162,7 @@ const getWeather = async () => {
 }
 
 const getBackgroundImage = () => {
-  if (!weather.value) return normal
+   if (!weather.value || !weather.value.weather) return normal
 
   const type = weather.value.weather[0].main
 
